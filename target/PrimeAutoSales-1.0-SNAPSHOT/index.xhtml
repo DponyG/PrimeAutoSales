@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Primefaces Hello World Example</title>
+    </h:head>
+    <h:body>
+        <ui:composition template = "Layout/template.xhtml">
+            <ui:define name = "content">
+                <p:notificationBar position="top" effect="slide" styleClass="top" widgetVar="bar">
+                    <h:outputText value ="Toggles Successfully" style ="font-size:36px" />
+                    <p:commandButton value="Hide" onclick="PF('bar').hide()" type="button" icon="ui-icon-arrow-1-n"/>
+                </p:notificationBar>
+                <p:panel header="Prime Auto Sales" closable="true" toggleable="true"
+                         closeTitle="Close" >
+                    Welcome to Prime Auto Sales.  We have thousands of prime autos for sale.
+                    <p:graphicImage library="images" name="auto-1.jpg" width="125"
+                                    height="100" />
+                    <p:fieldset legend ="Car" toggleSpeed ="300" toggleable="true">
+                        <p:ajax event ="toggle" onsuccess="PF('bar').show();"/>
+                        <p:panelGrid columns ="2">
+                            <p:graphicImage library ="images" name ="car.jpg" width ="125" height="100" />
+                            <h:outputText value ="High Quality Cars" />
+                            <p:commandButton value ="View Cars" ajax="false"
+                                             action ="#{mainViewController.navigateToCar}" />
+                        </p:panelGrid>
+                    </p:fieldset>
+                    <p:fieldset legend ="Suv" toggleSpeed ="300" toggleable="true">
+                        <p:panelGrid columns ="2">
+                            <p:graphicImage library ="images" name ="suv.jpg" width ="125" height="100" />
+                            <h:outputText value ="High Quality SUVS" />
+                            <p:commandButton value ="View Cars" ajax="false"
+                                             action ="#{mainViewController.navigateToSUV}" />
+                        </p:panelGrid>
+                    </p:fieldset>
+                    <p:fieldset legend ="Pickup Truck" toggleSpeed ="300" toggleable="true">
+                        <p:panelGrid columns ="2">
+                            <p:graphicImage library ="images" name ="truck.jpg" width ="125" height="100" />
+                            <h:outputText value ="High Quality Trucks" />
+                            <p:commandButton value ="View Cars" ajax="false"
+                                             action ="#{mainViewController.navigateToTruck}" />
+                        </p:panelGrid>
+                    </p:fieldset>
+
+                </p:panel>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

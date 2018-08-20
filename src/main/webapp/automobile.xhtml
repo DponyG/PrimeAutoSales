@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Primefaces Hello World Example</title>
+    </h:head>
+    <h:body>
+        <ui:composition template = "Layout/template.xhtml">
+            <ui:define name = "content">
+                <p:tabView>
+                    <p:tab title="Information">
+                        Information
+                    </p:tab>
+
+                    <p:tab title="Specification">
+                        Specification
+                    </p:tab>
+
+                    <p:tab title="Four Wheel Drive Specifications" rendered="#{(mainViewController.selectionType eq 'SUV')
+                                                                               or (mainViewController.selectionType eq 'TRUCK')}">
+                        Four Wheel Drive Specifications
+                    </p:tab>
+                </p:tabView>
+
+                <p:tabView value ="#{mainViewController.automobile}" var ="auto">
+
+                    <p:tab title ="#{auto.make}"></p:tab>
+                    <p:tab title ="#{auto.model}"></p:tab>
+
+                    t
+                </p:tabView>
+
+
+
+            </ui:define>ttttt
+        </ui:composition>
+    </h:body>
+</html>
+
